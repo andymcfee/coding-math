@@ -1,13 +1,10 @@
-window.onload = function() {
-  var canvas = document.getElementById("canvas"),
-      context = canvas.getContext("2d"),
-      width = canvas.width = window.innerWidth,
-      height = canvas.height = window.innerHeight;
+var v1 = vector.create(10, 5),
+    v2 = vector.create( 3, 4),
+    v3 = v1.add(v2);
 
-  for (var i = 0; i < 100; i += 1) {
-    context.beginPath();
-    context.moveTo(Math.random() * width, Math.random() * height);
-    context.lineTo(Math.random() * width, Math.random() * height);
-    context.stroke();
-  };
-}
+console.log(v3.getX());
+console.log(v3.getY());
+
+console.log("v1 length = " + v1.getLength());
+console.log("v1 * 5 length = " + v1.multiply(5).getLength());
+
