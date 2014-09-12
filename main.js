@@ -1,10 +1,32 @@
-var v1 = vector.create(10, 5),
-    v2 = vector.create( 3, 4),
-    v3 = v1.add(v2);
+window.onload = function() {
+    var canvas = document.getElementById("canvas"),
+        context = canvas.getContext("2d"),
+        width = canvas.width = window.innerWidth,
+        height = canvas.height = window.innerHeight,
+        particles = [],
+        numParticles = 100;
 
-console.log(v3.getX());
-console.log(v3.getY());
+    for(var i = 0; i < numParticles; i += 1) {
+        particles.push(particle.create(width / 2, height / 2, Math.random() * 4 + 1, Math.random() * Math.PI * 2));
+    }
 
-console.log("v1 length = " + v1.getLength());
-console.log("v1 * 5 length = " + v1.multiply(5).getLength());
+    update();
 
+    function update() {
+        context.clearRect(0, 0, width, height);
+
+        for(var i = 0; i < numParticles; i += 1) {
+            var p = particles[i];
+            p.update();
+            context.beginPath();
+            context.arc(p.position.getX(), p.position.getY(), 10, 0, Math.PI * 2, false);
+            context.fill();
+
+        }
+
+
+        requestAnimationFrame(update);
+    }
+
+
+}
