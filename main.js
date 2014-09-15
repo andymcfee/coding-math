@@ -26,10 +26,6 @@ window.onload = function() {
         context.arc(planet.position.getX(), planet.position.getY(), 5, 0, Math.PI * 2, false);
         context.fill();
 
-
-
-
-
         requestAnimationFrame(update);
     }
 
