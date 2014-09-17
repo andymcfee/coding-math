@@ -5,6 +5,7 @@ var particle = {
     mass: 1,
     angleTo: null,
     distanceTo: null,
+    radius: 0,
 
     create: function(x, y, speed, direction, grav) {
         var obj = Object.create(this);
